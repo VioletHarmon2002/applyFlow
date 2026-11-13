@@ -1,0 +1,271 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #7255e8;
+    --primary-hover: #6043d3;
+    --background: #f7f7fc;
+    --surface: #ffffff;
+    --text: #202034;
+    --muted: #77788c;
+    --border: #e9e8f1;
+    --danger: #e45469;
+    --shadow: 0 10px 35px rgba(45, 36, 110, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 55px 24px;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Main container */
+body > h1,
+body > h2,
+body > p,
+body > form,
+body > ul,
+body > label,
+body > select {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    margin-top: 0;
+    margin-bottom: 4px;
+    color: var(--primary);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 28px;
+}
+
+/* Application form */
+#job-form {
+    background: var(--surface);
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#job-form input,
+#job-form select,
+#edit-modal input,
+#edit-modal select {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: #fbfbfe;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+#job-form input:focus,
+#job-form select:focus,
+#edit-modal input:focus,
+#edit-modal select:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(114, 85, 232, 0.10);
+}
+
+input::placeholder {
+    color: #a6a5b5;
+}
+
+/* Add application button */
+#job-form button[type="submit"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 11px;
+    background: var(--primary);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#job-form button[type="submit"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(114, 85, 232, 0.22);
+}
+
+/* Filter */
+#status-filter {
+    padding: 10px 14px;
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Applications list */
+#job-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#job-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 20px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#job-list li:hover {
+    border-color: #d7d0fa;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(45, 36, 110, 0.09);
+}
+
+/* Shared action button styling */
+.delete-button,
+.edit-btn {
+    padding: 9px 15px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Push actions toward the right */
+#job-list .delete-button {
+    margin-left: auto;
+}
+
+/* Delete button */
+.delete-button {
+    background: #fff1f3;
+    color: var(--danger);
+    border: 1px solid #ffdde3;
+}
+
+.delete-button:hover {
+    background: var(--danger);
+    color: white;
+}
+
+/* Edit button */
+.edit-btn {
+    background: #f0edff;
+    color: var(--primary);
+    border: 1px solid #e3dcff;
+}
+
+.edit-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Edit modal */
+#edit-modal {
+    width: min(460px, calc(100% - 32px));
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(24, 19, 70, 0.20);
+    color: var(--text);
+    font-family: inherit;
+}
+
+#edit-modal::backdrop {
+    background: rgba(24, 20, 60, 0.45);
+    backdrop-filter: blur(5px);
+}
+
+#edit-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#edit-modal button {
+    padding: 12px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#edit-modal button[type="submit"] {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 28px 16px;
+    }
+
+    #job-form {
+        padding: 22px;
+    }
+
+    #job-list li {
+        padding: 17px;
+    }
+
+    #job-list .delete-button {
+        margin-left: 0;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+}
+

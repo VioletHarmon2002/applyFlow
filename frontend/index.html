@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>ApplyFlow</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>ApplyFlow</h1>
+  <p>Track your job applications</p>
+
+  <form id="job-form">
+    <input
+      type="text"
+      id="company"
+      name="company"
+      placeholder="Company name"
+      required
+    >
+
+    <input
+      type="text"
+      id="position"
+      name="position"
+      placeholder="Position"
+      required
+    >
+
+    <select id="status" name="status">
+      <option value="Applied">Applied</option>
+      <option value="Interview">Interview</option>
+      <option value="Offer">Offer</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+
+    <button type="submit" >Add Application</button>
+  </form>
+
+  <label for ="status-filter">Choose a filter: </label>
+  <select name="filter" id = "status-filter">
+    <option value="All" selected>All</option>
+    <option value="Applied">Applied</option>
+    <option value="Interview">Interview</option>
+    <option value="Offer">Offer</option>
+    <option value="Rejected">Rejected</option>
+  </select>
+
+  <h2>Applications</h2>
+  <ul id="job-list"></ul>
+      <!-- Modal for editing applications -->
+    <dialog id="edit-modal">
+        <h2>Edit Application</h2>
+
+        <form id="edit-form">
+            <label for="edit-company">Company</label>
+            <input type="text" id="edit-company" required>
+
+            <label for="edit-position">Position</label>
+            <input type="text" id="edit-position" required>
+
+            <label for="edit-status">Status</label>
+            <select id="edit-status">
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+            <button type="submit">Save Changes</button>
+            <button type="button" id="cancel-edit">Cancel</button>
+        </form>
+    </dialog>
+</body>
+</html>
+
